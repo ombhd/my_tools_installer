@@ -11,6 +11,7 @@ rm -rf brew1.9.0.tar.gz
 mv brew-1.9.0 .brew			
 rm -rf ~/goinfre/.brew		
 cp -Rf .brew ~/goinfre		
+rm -rf ./.brew
 echo -e "\n\033[32m------- brew has been installed successfully -------\033[0m\n"
 
 echo -e "\n\033[33m------- Downloading valgrind ... -------\033[0m\n"
