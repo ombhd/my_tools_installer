@@ -10,6 +10,11 @@ shell_f="${HOME}/.${shell_f}rc"
 
 line=$(grep -E ".*export.*PATH=.*/goinfre/\.brew/bin.*" < "$shell_f")
 
+brew &>/dev/null
+if [[ "$?" == "127" ]];then
+	PATH=$HOME/goinfre/.brew/bin:$PATH
+fi
+
 if [[ "$line" != *export*'PATH='*'/goinfre/.brew/bin'* || "$line" =~ .*\#.*export.*'PATH='.*'/goinfre/.brew/bin'.* ]]; then
-	echo "export PATH=$HOME/goinfre/.brew/bin:$PATH" >> "$shell_f"
+	echo "export PATH=$PATH" >> "$shell_f"
 fi
