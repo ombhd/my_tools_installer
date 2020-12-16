@@ -35,6 +35,7 @@ if [[ $1 == "question" ]]; then
 		done
 	else
 		echo -e "\n\033[32m------- valgrind has been already installed -------\033[0m\n"
+		sleep 2
 	fi
 	exit $valg
 elif [[ $1 == "install" ]]; then
