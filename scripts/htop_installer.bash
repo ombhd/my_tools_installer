@@ -34,12 +34,16 @@ if [[ $1 == "question" ]]; then
 		done
 	else
 		echo -e "\n\033[32m------- htop has been already installed -------\033[0m\n"
+		sleep 2
 		exit 2
 	fi
 	exit $htp
 elif [[ $1 == "install" ]]; then
 	echo -e "\n\033[33m------- Installing htop ... -------\033[0m\n"
 	echo -e "\n\033[36m------- This will take several minutes -------\033[0m\n"
-	"$HOME"/goinfre/.brew/bin/brew install htop
-	echo -e "\n\033[32m------- htop has been installed successfully -------\033[0m\n"
+	if "$HOME"/goinfre/.brew/bin/brew install htop &>/dev/null; then
+		echo -e "\n\033[32m------- htop has been installed successfully -------\033[0m\n"
+	else
+		echo -e "\n\033[32m------- htop has NOT been installed :( -------\033[0m\n"
+	fi
 fi
