@@ -32,6 +32,7 @@ if [[ $1 == "question" ]]; then
 		done
 	elif [[ "$is_installed" == "0" && "$path" == *"goinfre"* ]]; then
 		echo -e "\n\033[32m------- brew has been already installed in goinfre -------\033[0m\n"
+		exit 2
 	fi
 	exit $brw
 elif [[ $1 == "install" ]]; then

@@ -10,8 +10,12 @@ shell_f="${HOME}/.${shell_f}rc"
 
 line=$(grep -E ".*export.*PATH=.*/goinfre/\.brew/bin.*" < "$shell_f")
 
+"$HOME"/goinfre/.brew/bin/brew &>/dev/null
+dep1="$?"
 brew &>/dev/null
-if [[ "$?" == "127" ]];then
+dep2="$?"
+
+if [[ "$dep1" == "1" && "$dep2" == "127" ]];then
 	PATH=$HOME/goinfre/.brew/bin:$PATH
 fi
 

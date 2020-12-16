@@ -8,7 +8,6 @@ if [[ "$brw" == "0" ]]; then
 	exit 0
 fi
 
-
 ./scripts/valgrind/valgrind_installer.bash question
 valg=$?
 

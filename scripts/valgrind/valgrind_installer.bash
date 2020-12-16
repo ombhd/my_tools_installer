@@ -40,6 +40,6 @@ if [[ $1 == "question" ]]; then
 elif [[ $1 == "install" ]]; then
 	echo -e "\n\033[33m------- Installing valgrind ... -------\033[0m\n"
 	echo -e "\n\033[36m------- This will take several minutes -------\033[0m\n"
-	"$HOME"/goinfre/.brew/bin/brew install --HEAD ./valgrind.rb &>/dev/null
+	"$HOME"/goinfre/.brew/bin/brew install --HEAD ./valgrind.rb
 	echo -e "\n\033[32m------- valgrind has been installed successfully -------\033[0m\n"
 fi
