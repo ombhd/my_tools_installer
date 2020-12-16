@@ -9,8 +9,8 @@ if [[ $1 == "question" ]]; then
 	if [[ "$is_installed" == "0" && "$path" != *"goinfre"* ]]; then
 
 		while true; do
-			echo -en "\033[33mhtop is not installed in goinfre\n\033[0m\033[36m"
-			echo -en "\033[33mDo you want to install htop in goinfre ? \033[0m\033[36m"
+			echo -en "\n\033[33mhtop is not installed in goinfre\n\033[0m"
+			echo -en "\033[33mDo you want to install htop in goinfre ? \033[0m"
 			read -r htp
 			case $htp in
 				[Yy]* ) htp=1 && break;;
@@ -19,12 +19,12 @@ if [[ $1 == "question" ]]; then
 			esac
 		done
 		if [ "$htp" == "1" ]; then
-			echo -en "\033[33mPlease, remove your version of htop in this path (remove the whole directory!) : $path \033[0m\033[36m"
+			echo -en "\n\033[33mPlease, remove your version of htop (remove the whole directories of htop)\033[0m\n"
+			sleep 3
 		fi
-	fi
-	if [ "$is_installed" == "1" ]; then
+	elif [ "$is_installed" == "1" ]; then
 		while true; do
-			echo -en "\033[33mDo you want to install htop ? \033[0m\033[36m"
+			echo -en "\n\033[33mDo you want to install htop ? \033[0m"
 			read -r htp
 			case $htp in
 				[Yy]* ) htp=1 && break;;
@@ -38,6 +38,7 @@ if [[ $1 == "question" ]]; then
 	exit $htp
 elif [[ $1 == "install" ]]; then
 	echo -e "\n\033[33m------- Installing htop ... -------\033[0m\n"
-	"$HOME"/goinfre/.brew/bin/brew install htop
+	echo -e "\n\033[36m------- This will take several minutes -------\033[0m\n"
+	"$HOME"/goinfre/.brew/bin/brew install htop &>/dev/null
 	echo -e "\n\033[32m------- htop has been installed successfully -------\033[0m\n"
 fi

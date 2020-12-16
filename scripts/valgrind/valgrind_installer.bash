@@ -10,8 +10,8 @@ if [[ $1 == "question" ]]; then
 	if [[ "$is_installed" == "0" && "$path" != *"goinfre"* ]]; then
 
 		while true; do
-			echo -en "\033[33mvalgrind is not installed in goinfre\n\033[0m\033[36m"
-			echo -en "\033[33mDo you want to install valgrind in goinfre ? \033[0m\033[36m"
+			echo -en "\n\033[33mvalgrind is not installed in goinfre\n\033[0m"
+			echo -en "\n\033[33mDo you want to install valgrind in goinfre ? \033[0m"
 			read -r valg
 			case $valg in
 				[Yy]* ) valg=1 && break;;
@@ -20,12 +20,12 @@ if [[ $1 == "question" ]]; then
 			esac
 		done
 		if [ "$valg" == "1" ]; then
-			echo -en "\033[33mPlease, remove your version of valgrind in this path (remove the whole directory!) : $path \033[0m\033[36m"
+			echo -en "\n\033[33mPlease, remove your version of valgrind in this path (remove the whole directories [~/valgrind* or ~/.valgrind]) ! \033[0m"
+			sleep 3
 		fi
-	fi
-	if [ "$is_installed" == "1" ]; then
+	elif [ "$is_installed" == "1" ]; then
 		while true; do
-			echo -en "\033[33mDo you want to install valgrind ? \033[0m\033[36m"
+			echo -en "\n\033[33mDo you want to install valgrind ? \033[0m"
 			read -r valg
 			case $valg in
 				[Yy]* ) valg=1 && break;;
@@ -39,6 +39,7 @@ if [[ $1 == "question" ]]; then
 	exit $valg
 elif [[ $1 == "install" ]]; then
 	echo -e "\n\033[33m------- Installing valgrind ... -------\033[0m\n"
-	"$HOME"/goinfre/.brew/bin/brew install --HEAD ./valgrind.rb 
+	echo -e "\n\033[36m------- This will take several minutes -------\033[0m\n"
+	"$HOME"/goinfre/.brew/bin/brew install --HEAD ./valgrind.rb &>/dev/null
 	echo -e "\n\033[32m------- valgrind has been installed successfully -------\033[0m\n"
 fi

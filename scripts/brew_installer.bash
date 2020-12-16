@@ -7,8 +7,8 @@ if [[ $1 == "question" ]]; then
 	path=$(which brew)
 	if [[ "$is_installed" == "0" && "$path" != *"goinfre"* ]]; then
 		while true; do
-			echo -en "\033[33mbrew is not installed in goinfre\n\033[0m\033[36m"
-			echo -en "\033[33mDo you want to install it in goinfre ? \033[0m\033[36m"
+			echo -en "\n\033[33mbrew is not installed in goinfre\n\033[0m\n"
+			echo -en "\n\033[33mDo you want to install it in goinfre ? \033[0m"
 			read -r brw
 			case $brw in
 				[Yy]* ) brw=1 && break;;
@@ -17,11 +17,12 @@ if [[ $1 == "question" ]]; then
 			esac
 		done
 		if [ "$brw" == "1" ]; then
-			echo -en "\033[33mPlease, remove your version of brew (remove the whole directories [~/.brew] or [~/brew] ..!) \033[0m\033[36m"
+			echo -en "\n\033[33mPlease, remove your version of brew (remove the whole directories [~/.brew] or [~/brew] ..!) \033[0m\n"
+			sleep 3
 		fi
 	elif [[ "$is_installed" == "1" ]]; then
 		while true; do
-			echo -en "\033[33mDo you want to install brew ? \033[0m\033[36m"
+			echo -en "\n\033[33mDo you want to install brew ? \033[0m"
 			read -r brw
 			case $brw in
 				[Yy]* ) brw=1 && break;;
