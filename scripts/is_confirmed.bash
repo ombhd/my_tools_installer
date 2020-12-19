@@ -27,8 +27,9 @@ path=$(which "$1")
 if [[ "$is_installed" == "0" && "$path" != *"goinfre"* ]]; then
 	get_conf "$1" 0
 	if [ "$confirmation" == "1" ]; then
-		echo -en "\n\033[33mPlease, remove your version of $1 (remove the whole directories of $1)\033[0m\n"
+		echo -en "\n\033[33mPlease, remove your version of $1 (remove the whole directories of $1), then retry the installation\033[0m\n"
 		sleep 2
+		confirmation=0
 	fi
 
 elif [ "$is_installed" == "1" ]; then

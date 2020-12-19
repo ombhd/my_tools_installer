@@ -13,7 +13,9 @@ line=$(grep -E "alias dmcm='bash ~/docker_start_up.bash'" < "$shell_f")
 if [[ "$line" == *"alias dmcm='bash ~/docker_start_up.bash'"* ]];
 then
 	echo -e "\033[33m\n -- dmcm Already installed --\n\033[0m"
-	echo -e "\033[36m -- Please, run this command now : [\033[33m source $shell_f\033[0m\033[36m ] Then run [\033[33m dmcm name_of_machine \033[0m\033[36m]--\n\033[0m" 
+	if which dmcm; then
+		echo -e "\033[36m -- Please, run this command now : [\033[33m source $shell_f\033[0m\033[36m ] Then run [\033[33m dmcm name_of_machine \033[0m\033[36m]--\n\033[0m" 
+	fi
 	exit 0
 fi
 
