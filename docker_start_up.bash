@@ -28,8 +28,8 @@ if docker-machine create --driver virtualbox "$machine" &>/dev/null; then
 	echo -e "\n$machine has been created successfully !\n"
 fi
 
-if docker-machine env &>/dev/null; then
-	echo -e "\033[32m\nrun this command [ eval \$(docker-machine env) ]\n\033[0m"
+if docker-machine env "$machine" &>/dev/null; then
+	echo -e "\033[32m\nrun this command [ eval \$(docker-machine env $machine) ]\n\033[0m"
 else
 	echo -e "\033[31m\nCould not complete your request :(\n\033[0m"
 fi

@@ -40,6 +40,10 @@ done
 ./scripts/make_data_dir.bash "${confs[2]}" docker
 ./scripts/make_data_dir.bash "${confs[4]}" minikube
 
-cp -f docker_start_up.bash "$HOME"
+if [[ "${confs[2]}" == "0" ]]; then
+	exit 0
+else
+	./scripts/dmcm_installer.bash
+fi
 
 exit 0

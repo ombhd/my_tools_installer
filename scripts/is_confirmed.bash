@@ -44,4 +44,5 @@ else
 	exit 2
 
 fi
+
 exit $confirmation
