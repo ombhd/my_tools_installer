@@ -5,6 +5,7 @@
 
  -  It installs brew.   
  -  It installs valgrind, htop, docker, docker-machine and minikube with brew.
+ -  It installs dmcm; a command to create virtual machines with docker-machine.
 
 ## How to run ?
   1.  `./my_tools_installer.sh`
