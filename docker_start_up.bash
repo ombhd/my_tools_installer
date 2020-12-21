@@ -5,10 +5,10 @@
 
 machine="default"
 
-if [ $# -eq 0 ]
+if [[ $# != 2 ]];
   then
-    echo "No arguments supplied"
-    echo "Please, give name of the machine you want to create as an argument !"
+	echo "No enough arguments supplied"
+	echo "Usage ==> dmcm [ name_of_the_virtual_machine ] [Option=> -c : to create/(remove & recreate) the machine | -r : to kill and restart the machine ]"
 	exit 2
 else
 	machine="$1"
@@ -20,12 +20,17 @@ if docker-machine kill "$machine" &>/dev/null; then
 	echo -e "\n$machine has been stopped\n"
 fi
 
-if docker-machine rm "$machine" -y &>/dev/null; then
-	echo -e "\n$machine has been removed\n"
-fi
-
-if docker-machine create --driver virtualbox "$machine" &>/dev/null; then
-	echo -e "\n$machine has been created successfully !\n"
+if [[ "$2" == "-c" ]]; then	
+	if docker-machine rm "$machine" -y &>/dev/null; then
+		echo -e "\n$machine has been removed\n"
+	fi
+	if docker-machine create --driver virtualbox "$machine" &>/dev/null; then
+		echo -e "\n$machine has been created successfully !\n"
+	fi
+elif [[ "$2" == "-r" ]];then
+	if docker-machine restart "$machine" &>/dev/null; then
+		echo -e "\n$machine is running now\n"
+	fi
 fi
 
 if docker-machine env "$machine" &>/dev/null; then
