@@ -16,7 +16,7 @@ fi
 
 docker stop "$(docker ps -aq &>/dev/null)" &>/dev/null
 
-if docker-machine stop "$machine" &>/dev/null; then
+if docker-machine kill "$machine" &>/dev/null; then
 	echo -e "\n$machine has been stopped\n"
 fi
 
