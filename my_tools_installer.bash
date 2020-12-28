@@ -2,6 +2,10 @@
 #Author Omar BOUYKOURNE
 #42login : obouykou
 
+#
+./scripts/banner.bash
+git pull &>/dev/null
+
 # declaring programs arrays, and another for their confirmations
 progs=(valgrind htop docker docker-machine minikube)
 declare -a confs
