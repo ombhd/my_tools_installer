@@ -2,7 +2,7 @@
 #Author Omar BOUYKOURNE
 #42login : obouykou
 
-#
+#print a banner, and update all files
 ./scripts/banner.bash
 git pull &>/dev/null
 
