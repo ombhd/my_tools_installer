@@ -13,3 +13,4 @@
   3.  Enjoy!
 ## NB:
  -  All above programs will be installed in goinfre.
+ -  If your goinfre symlink is not in this format `/goinfre/your_login`, you have to remove it, log out and log in, then you can retry the installation.

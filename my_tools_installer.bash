@@ -32,7 +32,7 @@ if [[ "$brw" == "1" ]]; then
 	./scripts/update_PATH.bash
 fi
 
-# install all confirmed programs installations
+# install all confirmed installations
 i=0
 for conf in "${confs[@]}"; do
 	if [[ "$conf" == "1" ]]; then
