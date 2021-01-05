@@ -7,7 +7,7 @@
 rm -rf "$HOME"/."$2" &>/dev/null
 ln -s "$HOME"/goinfre/."$2" "$HOME"/."$2" &>/dev/null
 
-# exit from function, if the command already installed and its data_dir exists in goinfre 
+# exit if the command already installed and its data_dir exists in goinfre 
 if [[ "$1" == "2" && -d "$HOME"/goinfre/."$2" ]]; then
 	exit 0
 fi
