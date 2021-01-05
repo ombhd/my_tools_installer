@@ -15,7 +15,7 @@
   
 ## Screenshots
 
-<img src="https://github.com/su-omb/my_tools_installer/blob/main/how-to-use-screenshot.png" width="2006" />
+<img src="https://github.com/su-omb/my_tools_installer/blob/main/how-to-use-screenshot.png" width="800" />
 
 ## NB:
  -  All above programs will be installed in goinfre.
