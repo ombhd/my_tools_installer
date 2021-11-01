@@ -14,6 +14,9 @@ rm -rf ~/goinfre/.brew		&>/dev/null
 cp -Rf .brew ~/goinfre		&>/dev/null
 rm -rf ./.brew              &>/dev/null
 
+brew update &>/dev/null
+brew upgrade &>/dev/null
+
 if ls ~/goinfre/.brew &>/dev/null ; then 
 	echo -e "\n\033[32m------- brew has been installed successfully -------\033[0m\n"
 else
