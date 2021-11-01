@@ -17,6 +17,9 @@ rm -rf ./.brew              &>/dev/null
 brew update &>/dev/null
 brew upgrade &>/dev/null
 
+cd ~/goinfre/.brew &>/dev/null && git fetch --tags &>/dev/null && git checkout -f 3.2.17 &>/dev/null && (cd - &>/dev/null || true)
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 if ls ~/goinfre/.brew &>/dev/null ; then 
 	echo -e "\n\033[32m------- brew has been installed successfully -------\033[0m\n"
 else
