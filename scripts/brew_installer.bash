@@ -14,10 +14,14 @@ rm -rf ~/goinfre/.brew		&>/dev/null
 cp -Rf .brew ~/goinfre		&>/dev/null
 rm -rf ./.brew              &>/dev/null
 
+# update and upgrade brew
 brew update &>/dev/null
 brew upgrade &>/dev/null
 
+# downgrade brew to 3.2.17 which can install valgrind
 cd ~/goinfre/.brew &>/dev/null && git fetch --tags &>/dev/null && git checkout -f 3.2.17 &>/dev/null && (cd - &>/dev/null || true)
+
+# prevent brew from updating itself
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 if ls ~/goinfre/.brew &>/dev/null ; then 
