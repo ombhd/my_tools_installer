@@ -4,10 +4,10 @@
 ## What's this script doing ?
 
  -  It installs brew.   
- -  It installs valgrind, htop, docker, docker-machine and minikube with brew.
+ -  It installs valgrind, nodejs, docker, docker-machine and minikube with brew.
  -  It installs dmcm; a command to create virtual machines with docker-machine.
 
-## How to run ?
+## How to use ?
   1.  `git clone https://github.com/ombhd/my_tools_installer.git && cd my_tools_installer && ./my_tools_installer.bash`
   2.  Make your confirmations.
   3.  Enjoy!
