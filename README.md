@@ -4,7 +4,7 @@
 ## What's this script doing ?
 
  -  It installs brew.   
- -  It installs valgrind, htop, docker, docker-machine and minikube with brew.
+ -  It installs valgrind, nodejs, docker, docker-machine and minikube with brew.
  -  It installs dmcm; a command to create virtual machines with docker-machine.
 
 ## How to run ?
