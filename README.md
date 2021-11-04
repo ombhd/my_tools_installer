@@ -9,7 +9,7 @@
 
 ## How to use ?
   ```sh
-  $ git clone https://github.com/ombhd/my_tools_installer.git && cd my_tools_installer && ./my_tools_installer.bash
+   git clone https://github.com/ombhd/my_tools_installer.git && cd my_tools_installer && ./my_tools_installer.bash
   ```
   2.  Make your confirmations.
   3.  Enjoy!
