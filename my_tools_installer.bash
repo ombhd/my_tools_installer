@@ -7,7 +7,7 @@
 git pull &>/dev/null
 
 # declaring programs arrays, and another for their confirmations
-progs=(valgrind docker docker-machine minikube)
+progs=(valgrind node docker docker-machine minikube)
 declare -a confs
 
 # confirm brew installation

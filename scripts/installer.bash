@@ -10,6 +10,10 @@ if [[ "$1" == "valgrind" ]]; then
 	prog="--HEAD ./scripts/valgrind.rb"
 fi
 
+if [[ "$1" == "node" ]]; then
+	prog="node@14"
+fi
+
 if "$HOME"/goinfre/.brew/bin/brew install $prog &>/dev/null ; then
 	echo -e "\n\033[32m------- $1 has been installed successfully -------\033[0m\n"
 else
