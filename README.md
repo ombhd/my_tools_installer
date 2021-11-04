@@ -8,7 +8,7 @@
  -  It installs dmcm; a command to create virtual machines with docker-machine.
 
 ## How to run ?
-  1.  `./my_tools_installer.bash`
+  1.  `git clone https://github.com/ombhd/my_tools_installer.git && cd my_tools_installer && ./my_tools_installer.bash`
   2.  Make your confirmations.
   3.  Enjoy!
   
