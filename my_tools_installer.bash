@@ -6,6 +6,11 @@
 ./scripts/banner.bash
 git pull &>/dev/null
 
+# check storage first
+if ! ./scripts/check_storage.bash; then
+	exit 1
+fi
+
 # declaring programs arrays, and another for their confirmations
 progs=(valgrind node docker docker-machine minikube)
 declare -a confs
@@ -26,7 +31,7 @@ done
 
 # install brew if confirmed and update PATH
 if [[ "$brw" == "1" ]]; then
-	if ! ./scripts/brew_installer.bash ; then 
+	if ! ./scripts/brew_installer.bash; then
 		exit 1
 	fi
 	./scripts/update_PATH.bash

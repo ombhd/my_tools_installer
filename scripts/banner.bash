@@ -11,6 +11,6 @@ echo -e		"\n	           report any issues to me in:"
 echo -e		"		       GitHub   ~> \033[4;1;34mombhd\033[0m"
 echo -e		"	   	       42 Slack ~> \033[4;1;34mobouykou\033[0m"
 echo -e		"\nRunning.."
-sleep 3
+sleep 2
 
 exit 0
