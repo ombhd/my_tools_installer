@@ -16,7 +16,8 @@ get_conf() {
 }
 
 # check if the user has at least 1gb of free space
-space_unity=$(df -h | grep "$HOME" | awk '{print $4}' | sed 's/^[0-9]*//')
+space_unity=$(df -h | grep "$HOME" | awk '{print $4}')
+space_unity=${space_unity: -2}
 if [[ $space_unity != "Gi" ]]; then
 	echo -e "\n\033[31mYou need at least 1gb of free space on your session to install this tool\033[0m"
 	# check in cclean
@@ -39,9 +40,12 @@ if [[ $space_unity != "Gi" ]]; then
 			# exit 0
 		else
 			echo -e "\n\033[31m[!]\033[0m balak dar i7chmiyn 🤫 \033[31m[!]\033[0m"
+			say "OK, I'm not going to install c clean"
 			exit 1
 		fi
 	fi
+else
+	exit 0
 fi
 
 echo -e "\n\033[33mrunning cclean...\033[0m"
