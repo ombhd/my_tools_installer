@@ -2,8 +2,9 @@
 #Author Omar BOUYKOURNE
 #42login : obouykou
 
-echo -e "\n\033[33m------- Installing $1 ... -------\033[0m\n"
-echo -e "\n\033[36m------- This will take some time -------\033[0m\n"
+
+printf "\n\033[33m------- %s ===> \033[0m" "$1"
+sh -c './scripts/spin.bash 2>/dev/null &'
 
 prog=$1
 if [[ "$1" == "valgrind" ]]; then
@@ -15,9 +16,11 @@ if [[ "$1" == "node" ]]; then
 fi
 
 if "$HOME"/goinfre/.brew/bin/brew install $prog &>/dev/null ; then
-	echo -e "\n\033[32m------- $1 has been installed successfully -------\033[0m\n"
+	pkill -f spin &>/dev/null
+	echo -e "\b\033[32m OK ✅\033[0m"
 else
-	echo -e "\n\033[31m------- $1 has NOT been installed :( -------\033[0m\n"
+	pkill -f spin &>/dev/null
+	echo -e "\b\033[31m KO ❌\033[0m"
 fi
 
 sleep 1

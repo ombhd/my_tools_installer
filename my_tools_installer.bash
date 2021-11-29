@@ -16,6 +16,7 @@ progs=(valgrind node docker docker-machine minikube)
 declare -a confs
 
 # confirm brew installation
+echo -e "\n\033[33mDo you want to install \033[0m"
 ./scripts/is_confirmed.bash brew
 # exit if confirmation was negative, because other programs installation depends on brew
 brw=$?
@@ -28,6 +29,25 @@ for prog in "${progs[@]}"; do
 	./scripts/is_confirmed.bash "$prog"
 	confs+=($?)
 done
+
+# check if the confirmation array is empty
+if [[ "${#confs[@]}" == "0" ]]; then
+	echo -e "\n\033[31mNo programs were selected to install.\033[0m"
+	exit 1
+fi
+
+# show cursor
+cleanup() {
+	tput cnorm
+}
+# get back the cursor after exiting
+trap cleanup EXIT
+
+# hide cursor
+tput civis
+
+# start installing
+echo -e "\n\033[33mInstalling programs...\033[0m"
 
 # install brew if confirmed and update PATH
 if [[ "$brw" == "1" ]]; then
