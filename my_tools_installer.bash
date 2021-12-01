@@ -11,6 +11,13 @@ if ! ./scripts/check_storage.bash; then
 	exit 1
 fi
 
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+ctrl_c() {
+	pkill -f spin &>/dev/null
+}
+
 # declaring programs arrays, and another for their confirmations
 progs=(valgrind node docker docker-machine minikube)
 declare -a confs
