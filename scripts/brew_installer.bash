@@ -2,6 +2,14 @@
 #Author Omar BOUYKOURNE
 #42login : obouykou
 
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+ctrl_c() {
+	echo -e "\b\033[31m KO ❌\033[0m"
+	exit 1
+}
+
 printf "\n\033[33m------- brew ===> \033[0m"
 sh -c './scripts/spin.bash 2>/dev/null &'
 rm -rf brew* &>/dev/null

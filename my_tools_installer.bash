@@ -15,7 +15,10 @@ fi
 trap ctrl_c INT
 
 ctrl_c() {
+	echo -en "\b\b\b"
 	pkill -f spin &>/dev/null
+	stty echo
+	exit 1
 }
 
 # declaring programs arrays, and another for their confirmations
@@ -43,15 +46,18 @@ if [[ "${#confs[@]}" == "0" ]]; then
 	exit 1
 fi
 
-# show cursor
+# show cursor and enable keyboard
 cleanup() {
 	tput cnorm
+	stty echo
 }
 # get back the cursor after exiting
 trap cleanup EXIT
 
 # hide cursor
 tput civis
+# disable keyboard
+stty -echo
 
 # start installing
 echo -e "\n\033[33mInstalling programs...\033[0m"
