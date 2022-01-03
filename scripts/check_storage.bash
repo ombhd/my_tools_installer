@@ -16,7 +16,7 @@ get_conf() {
 }
 
 # check if the user has at least 1gb of free space
-space_unity=$(df -h | grep "$HOME" | awk '{print $4}')
+space_unity=$(df -h | grep -E "/dev.*$HOME" | awk '{print $4}')
 space_unity=${space_unity: -2}
 if [[ $space_unity != "Gi" ]]; then
 	echo -e "\n\033[31mYou need at least 1gb of free space on your session to install this tool\033[0m"
