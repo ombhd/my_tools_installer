@@ -24,6 +24,10 @@ if docker-machine rm "$machine" -y &>/dev/null; then
 	echo -e "\n$machine has been removed\n"
 fi
 
+if ! ls "$HOME"/.docker/machine/cache/boot2docker.iso; then
+curl -Lo "$HOME"/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v18.09.1-rc1/boot2docker.iso &>/dev/null
+fi
+
 if docker-machine create --driver virtualbox "$machine" &>/dev/null; then
 	echo -e "\n$machine has been created successfully !\n"
 fi
