@@ -22,7 +22,8 @@
 ## NB:
  -  All above programs will be installed in goinfre.
  -  If your goinfre symlink is not in this format `/goinfre/your_login`, you have to remove it, log out and log in, then you can retry the installation.
- -  Please, report any bug happening with you while installing or running the command
- -  Contact me on 42 slack @obouykou or post an issue here on GitHub
+ -  Please, report any bug happening with you while installing or running the tool.
+ -  Contact me on 42 slack @obouykou or post an issue here on GitHub.
+ -  Do NOT hesitate to make a pull request.
 
 42login : obouykou
