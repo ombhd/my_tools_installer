@@ -24,7 +24,7 @@ if docker-machine rm "$machine" -y &>/dev/null; then
 	echo -e "\n$machine has been removed\n"
 fi
 
-if ! ls "$HOME"/.docker/machine/cache/boot2docker.iso; then
+if ! ls "$HOME"/.docker/machine/cache/boot2docker.iso &>/dev/null; then
 curl -Lo "$HOME"/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v18.09.1-rc1/boot2docker.iso &>/dev/null
 fi
 
