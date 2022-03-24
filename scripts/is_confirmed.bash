@@ -19,7 +19,7 @@ confirmation=0
 is_installed=$(which "$1" &>/dev/null; echo -n $?)
 path=$(which "$1")
 
-if [[ "$is_installed" == "0" && "$path" != *"goinfre"* ]]; then
+if [[ -f "$HOME"/goinfre/.brew/bin/"$1" ]]; then
 	confirmation=0
 
 elif [ "$is_installed" == "1" ]; then
@@ -29,7 +29,7 @@ else
 	if [[ "$1" == "brew" && "$is_installed" == "0" && "$path" == *"goinfre"* ]]; then
 		echo -e "\n\033[32m------- brew has been already installed in goinfre -------\033[0m\n"
 	else
-		echo -e "\n\033[32m------- $1 has been already installed -------\033[0m\n"
+	echo -e "\n\033[32m------- $1 is already installed -------\033[0m\n"
 	fi
 	sleep 1
 	exit 2

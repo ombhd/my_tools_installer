@@ -6,9 +6,11 @@
 trap ctrl_c INT
 
 ctrl_c() {
+	pkill -f spin &>/dev/null
 	echo -e "\b\033[31m KO ❌\033[0m"
 	exit 1
 }
+
 
 printf "\n\033[33m------- brew ===> \033[0m"
 sh -c './scripts/spin.bash 2>/dev/null &'
@@ -20,6 +22,9 @@ mv brew-1.9.0 .brew &>/dev/null
 rm -rf ~/goinfre/.brew &>/dev/null
 cp -Rf .brew ~/goinfre &>/dev/null
 rm -rf ./.brew &>/dev/null
+
+
+export PATH=$HOME/goinfre/.brew/bin:$PATH
 
 # update and upgrade brew
 brew update &>/dev/null
