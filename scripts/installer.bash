@@ -52,7 +52,7 @@ if "$HOME"/goinfre/.brew/bin/brew install $prog 2>$ERROR_LOG_FILE 1>/dev/null ; 
 else
 	pkill -f spin &>/dev/null
 	echo -e "\b\033[31m KO ❌\033[0m"
-	if grep "SSL certificate problem: certificate has expired" <$ERROR_LOG_FILE; then
+	if grep "SSL certificate problem: certificate has expired" < $ERROR_LOG_FILE &>/dev/null; then
 		pkill -f spin &>/dev/null
 		echo -e "\b\n\033[31m SSL certificate problem detected\033[0m\n"
 		echo "Going insecure mode..."
