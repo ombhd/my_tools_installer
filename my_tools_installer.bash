@@ -23,7 +23,6 @@ ctrl_c() {
 	exit 1
 }
 
-
 # declaring programs arrays, and another for their confirmations
 progs=(valgrind node docker docker-machine minikube)
 declare -a alreadyInstalledProgs
@@ -33,7 +32,7 @@ export PATH=$HOME/goinfre/.brew/bin:$PATH
 # remove the already installed programs	from the progs array
 # and add them to the alreadyInstalledProgs array
 for i in "${!progs[@]}"; do
-	if [[ -f "$HOME"/goinfre/.brew/bin/${progs[$i]} ]] || which "${progs[$i]}" &>/dev/null ; then
+	if [[ -f "$HOME"/goinfre/.brew/bin/${progs[$i]} ]] || which "${progs[$i]}" &>/dev/null; then
 		alreadyInstalledProgs+=("${progs[$i]}")
 		unset "progs[$i]"
 	fi
@@ -64,14 +63,15 @@ echo -e "\n\033[33mDo you want to install: \033[0m"
 # is something is selected
 shouldInstall=0
 
+declare -a progsToInstall
+
 # get programs installation confirmations
 for prog in "${progs[@]}"; do
 	./scripts/is_confirmed.bash "$prog"
-	res=$?
-	confs+=("$res")
 	# if at least one is selected, set shouldInstall to 1
-	if [[ "$res" == "1" ]]; then
+	if [[ "$?" == "1" ]]; then
 		shouldInstall=1
+		progsToInstall+=("$prog")
 	fi
 done
 
@@ -118,20 +118,18 @@ if [[ ! -f "$HOME"/goinfre/.brew/bin/brew ]]; then
 fi
 
 # install all confirmed installations
-i=0
-for conf in "${confs[@]}"; do
-	if [[ "$conf" == "1" ]]; then
-		./scripts/installer.bash "${progs[$i]}"
-	fi
-	((i++))
+for prog in "${progsToInstall[@]}"; do
+	./scripts/installer.bash "$prog"
 done
 
-./scripts/make_data_dir.bash "${confs[2]}" docker
-./scripts/make_data_dir.bash "${confs[4]}" minikube
+if [[ " ${progsToInstall[*]} " =~ " docker " ]]; then
+	./scripts/make_data_dir.bash docker
+fi
+if [[ " ${progsToInstall[*]} " =~ " minikube " ]]; then
+	./scripts/make_data_dir.bash minikube
+fi
 
-if [[ "${confs[2]}" == "0" ]]; then
-	exit 0
-else
+if [[ " ${progsToInstall[*]} " =~ " docker " ]] || [[ " ${progsToInstall[*]} " =~ " docker-machine " ]]; then
 	./scripts/dmcm_installer.bash
 fi
 
