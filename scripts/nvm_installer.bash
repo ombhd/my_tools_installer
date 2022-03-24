@@ -5,13 +5,6 @@
 SHELL_LANG=$(echo -n "$SHELL" | awk -F / '{print $3}')
 shell_f="${HOME}/.${SHELL_LANG}rc"
 
-if /Users/obouykou/.nvm/versions/node/v16.14.2/bin/node -v; then
-    echo -e "\n\033[32m------- node is already installed -------\033[0m\n"
-    echo -e "\n\033[32m ⛔️ You Just need to update the PATH variable with this command: [ source $shell_f ]\033[0m\n"
-    sleep 1
-    exit 2
-fi
-
 get_back_to_secure_mode() {
 	/bin/rm -rf ~/.curlrc &>/dev/null
 	export HOMEBREW_CURLRC=0
