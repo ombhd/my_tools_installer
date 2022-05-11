@@ -26,7 +26,6 @@ ctrl_c() {
 # declaring programs arrays, and another for their confirmations
 progs=(valgrind node docker docker-machine minikube)
 declare -a alreadyInstalledProgs
-declare -a confs
 export PATH=$HOME/goinfre/.brew/bin:$PATH
 
 # remove the already installed programs	from the progs array

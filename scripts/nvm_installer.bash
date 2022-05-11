@@ -80,9 +80,10 @@ mkdir  "$HOME"/goinfre/.nvm &>/dev/null
 ln -s "$HOME"/goinfre/.nvm "$HOME"/.nvm &>/dev/null
 
 # add the nvm config the shell config file
+echo "\n# nvm configuration\n" >>"$shell_f"
 echo 'export NVM_DIR=$HOME/.nvm' >> "$shell_f"
-echo '[ -s "/goinfre/obouykou/.brew/opt/nvm/nvm.sh" ] && \. "/goinfre/obouykou/.brew/opt/nvm/nvm.sh"  # This loads nvm' >> "$shell_f"
-echo '[ -s "/goinfre/obouykou/.brew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/goinfre/obouykou/.brew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion' >> "$shell_f"
+echo '[ -s "$HOME/goinfre/.brew/opt/nvm/nvm.sh" ] && \. "$HOME/goinfre/.brew/opt/nvm/nvm.sh"  # This loads nvm' >> "$shell_f"
+echo '[ -s "$HOME/goinfre/.brew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOME/goinfre/.brew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion' >> "$shell_f"
 # install node 16
 install_loader "node 16"
 
