@@ -80,7 +80,8 @@ mkdir  "$HOME"/goinfre/.nvm &>/dev/null
 ln -s "$HOME"/goinfre/.nvm "$HOME"/.nvm &>/dev/null
 
 # add the nvm config the shell config file
-echo "\n# nvm configuration\n" >>"$shell_f"
+echo >> "$shell_f"
+echo "# nvm configuration" >>"$shell_f"
 echo 'export NVM_DIR=$HOME/.nvm' >> "$shell_f"
 echo '[ -s "$HOME/goinfre/.brew/opt/nvm/nvm.sh" ] && \. "$HOME/goinfre/.brew/opt/nvm/nvm.sh"  # This loads nvm' >> "$shell_f"
 echo '[ -s "$HOME/goinfre/.brew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOME/goinfre/.brew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion' >> "$shell_f"
@@ -100,6 +101,6 @@ fi
 
 
 # tell the user to source the shell config file
-echo -e "\n\033[32m ⛔️ You need to update the PATH variable with this command: [ source $shell_f ]\033[0m\n"
+echo -e "\n\033[32m ⛔️ Please, run this command: [ source $shell_f ]\033[0m\n"
 echo -e "\n\033[33m You can install any node version you want with [ nvm install version_number ]  \033[0m"
 echo -e "\n\033[33m ex: nvm install 17 \033[0m"

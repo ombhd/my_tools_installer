@@ -92,7 +92,7 @@ cleanup() {
 	shell_f="${HOME}/.${SHELL_LANG}rc"
 	brew &>/dev/null
 	if [[ "$?" == "127" ]]; then
-		echo -e "\n\033[32m ⛔️ You need to update the PATH variable with this command: [ source $shell_f ]\033[0m\n"
+		echo -e "\n\033[32m ⛔️ Please, run this command: [ source $shell_f ]\033[0m\n"
 		exit 1
 	fi
 	exit 0
