@@ -47,7 +47,6 @@ ERROR_LOG_FILE="error.log"
 export PATH=$HOME/goinfre/.brew/bin:$PATH
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-# if "$HOME"/goinfre/.brew/bin/brew install $prog &>/dev/null ; then
 if "$HOME"/goinfre/.brew/bin/brew install $prog 2>$ERROR_LOG_FILE 1>/dev/null; then
 	pkill -f spin &>/dev/null
 	echo -e "\b\033[32m OK ✅\033[0m"

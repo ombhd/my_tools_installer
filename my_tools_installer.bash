@@ -115,7 +115,7 @@ if [[ ! -f "$HOME"/goinfre/.brew/bin/brew ]]; then
 	fi
 	./scripts/update_PATH.bash
 fi
-
+exit
 # install all confirmed installations
 for prog in "${progsToInstall[@]}"; do
 	./scripts/installer.bash "$prog"
